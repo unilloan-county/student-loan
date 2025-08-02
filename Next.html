@@ -26,7 +26,7 @@ body{background:white;
                            
                             }         
                        
-             .reg{ font-size:20px;   
+             .reg{ font-size:50px;   
                     background:green;   
                              }
                    
@@ -59,16 +59,20 @@ body{background:white;
  <div class="col"> <h3> pay to the following till number and copy mpesa message in the space provide</h3> </div> <br>
  <input class="pay" type="text" placeholder="copy mpesa message here"> <br> <br> <br> <br> <br> <br> 
  
- <button class="reg"  onclick="Register"> Register </button> 
+ <button  onclick="Register();" class="Js-register-button"> Register </button> 
  
  
  
  
 <script type="text/javascript">
  function Register() {
-     variable x = document.getElementById(go ahead);}
-
-
+     const buttonElement=document.querySelector
+           (".Js-register-button");
+           
+        if ( buttonElement.innerText === "register") {
+             buttonElement.innerHTML="registered"; 
+             } 
+            }
 
 
 

@@ -1,92 +1,163 @@
-<!doctype html> 
-<head> <title> </title> <style type="text/css">
-                   
-    .home {  color:black;
-             background:green;
-             border:2px solid black;
-             font-size:40px;
-                }             
-      .body{ background:grey;        
-               font-size:30px;             }    
-                               
-        .site{  font-size:30px;            
-                                }             
-                                    
-            .pay{ background:black;         
-                   font-size:40px;           
-                     color:white;                          
-                     border: 4px solid black;
-                      border-radius:20px;
-                     padding:4px;
-                                             }
+Here is a modern, attractive, and fully structured webpage built using the code you provided — now enhanced for visual appeal, clarity, and responsiveness. This represents a "Loan Application – Personal & Guarantor Details" form page with clean layout and styling improvements.
 
 
+---
+
+✅ Improved & Responsive Loan Form Webpage
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Application – Personal & Guarantor Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body.body {
+      background-color: #f0f0f0;
+      padding: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #004d00;
+    }
+
+    h3 {
+      margin-top: 20px;
+      color: #006600;
+    }
+
+    .here {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .site, form {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px 10px 10px 0;
+      width: calc(50% - 12px);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #009900;
+      outline: none;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #ccc;
+    }
+
+    .pay {
+      display: inline-block;
+      font-size: 22px;
+      background: green;
+      color: white;
+      padding: 12px 30px;
+      border: 3px solid black;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .pay:hover {
+      background: #004d00;
+    }
+
+    @media (max-width: 768px) {
+      input[type="text"] {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body class="body">
+  <a class="here" href="Register.html">← Back</a>
+
+  <form>
+    <h2>Personal Details</h2>
+    <div class="site">
+      <input type="text" placeholder="First name">
+      <input type="text" placeholder="Middle name"><br>
+      <input type="text" placeholder="Last name">
+      <input type="text" placeholder="Phone number"><br>
+      <input type="text" placeholder="ID number">
+      <input type="text" placeholder="Email"><br>
+      <input type="text" placeholder="Postal address">
+    </div>
+
+    <hr>
+
+    <h2>Institution Details</h2>
+    <div class="site">
+      <input type="text" placeholder="University name">
+      <input type="text" placeholder="Year of study"><br>
+      <input type="text" placeholder="Government sponsored or Self-sponsored">
+    </div>
+
+    <hr>
+
+    <h2>Reasons for Application</h2>
+    <div class="site">
+      <input type="text" placeholder="Are all parents alive?">
+      <input type="text" placeholder="Sponsored in secondary school?"><br>
+      <input type="text" placeholder="Current source of family's income">
+    </div>
+
+    <hr>
+
+    <h2>Guarantor Details</h2>
+
+    <h3>First Guarantor</h3>
+    <div class="site">
+      <input type="text" placeholder="First name">
+      <input type="text" placeholder="Middle name"><br>
+      <input type="text" placeholder="Last name">
+      <input type="text" placeholder="Relationship"><br>
+      <input type="text" placeholder="Phone number">
+    </div>
+
+    <h3>Second Guarantor</h3>
+    <div class="site">
+      <input type="text" placeholder="First name">
+      <input type="text" placeholder="Middle name"><br>
+      <input type="text" placeholder="Last name">
+      <input type="text" placeholder="Relationship"><br>
+      <input type="text" placeholder="Phone number">
+    </div>
+
+    <br><br>
+    <a class="pay" href="Pay.html">Continue to next step →</a>
+  </form>
+
+</body>
+</html>
 
 
-             .here{ color:white;
-
-                    background:black;
-                                 }
-                    
-                        
-                         
-                         
-                 
-               </style> </head>
-   
-  <body class="body"> 
-  <a class="here" href="Register.html" >Back</a>
-  <h2> Personal details</h2>
- <div class ="site"> <input  type=" text"  placeholder="first name" >
-  <input type="text" placeholder="middle name"> <br> <br>
-  <input type="text" placeholder="lastname"> <br> <br>
-  <input type="text" placeholder="phone number">
-  <input type="text" placeholder=" ID number"> <br> <br>
-  <input type="text" placeholder="email">
-  <input type="text" placeholder=" postal address"> <br> <br> <hr>
-  <h2> Institution details</h2>
-  <input type =" text" placeholder="University name">
-  <input type="text" placeholder="year of study"> <br> <br> 
-  <input type ="text" placeholder=" government sponsered or self sponsered"> </div>
-  <br> <br> <hr> 
-  <h2> Reasons for apllication </h2>
-  <input  type="text"  placeholder="Are all parents alive?">
-  <input type="text"  placeholder="Sponsered in Secondary School?"> <br> <br>
-  <input type="text" placeholder="Current source of family's income">
-  
-  
-  
-  
-  <hr> <br>
-  <h2> Guarantors details</h2> <br> 
-  <h3> First guarantor</h3> <br> <br> 
-
-
-  <input type="text" placeholder="first name" >
-  <input type="text" placeholder="Middle name"> <br> <br> <br>
-    <input type="text" placeholder="last name">
-    <input type="text" placeholder="relationship"> <br> <br>
-    <input type="text" placeholder="phone number"
-    <br> <br> <hr>
-    <br>
-    <h3> Second guarantor</h3> <br> <br>
-    <input type="text" placeholder="first name"> 
-    <input type="text" placeholder="middle name"> <br> <br> <br>
-    <input type="text" placeholder="lastname">
-    <input type="text" placeholder="relationship"> <br> <br> <br>
-    <input type="text" placeholder="phone number"> <hr> <br> <br>
-    <a class="pay" href="Pay.html"> Continue to next step </a>
-    
-    
-    
-    
-  
-  
-  
-  
-  
-  <script type="text/javascript">      </script>
-  
-  
-  
-  </body>

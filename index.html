@@ -1,150 +1,248 @@
+Thanks! Based on your request, I’ve restyled your “Quick Loans” webpage using the cleaner, more modern structure and design language like in the Lian Loans homepage — including responsive layout, consistent spacing, better typography, and subtle visual improvements.
+
+
+---
+
+✅ Restyled and Responsive Version of “Quick Loans” Page
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lian Loans - Home</title>
+  <title>Quick Loans - Uniloan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    /* Reset and base styles */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background-color: #f5f5f5;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       background-color: #004aad;
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 30px 20px;
     }
 
-    nav {
-      background-color: #00337f;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 8px 16px;
-      border-radius: 5px;
-    }
-
-    nav a:hover {
-      background-color: #005eff;
-    }
-
-    .hero {
-      background: url('loan-bg.jpg') no-repeat center center/cover;
-      height: 350px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 40px;
+    header h1 {
+      font-size: 36px;
       margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 20px;
-      max-width: 600px;
+    header p {
+      font-size: 18px;
     }
 
-    .content {
-      padding: 40px 20px;
-      text-align: center;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
     }
 
-    .content h2 {
-      font-size: 28px;
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 20px;
     }
 
-    .content p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
+    .row img {
+      width: 60px;
+      height: 60px;
     }
 
-    .cta-button {
+    .hero {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero img {
+      width: 300px;
+      height: 300px;
+      border-radius: 12px;
+      margin: 10px;
+    }
+
+    .highlight {
+      background-color: #e0f0ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .highlight h3 {
+      font-size: 24px;
+      color: #004aad;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #004aad;
+      margin-bottom: 15px;
+    }
+
+    .section p,
+    .section li {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .cta {
       display: inline-block;
-      margin-top: 30px;
-      padding: 12px 25px;
       background-color: #004aad;
       color: white;
       text-decoration: none;
-      font-size: 20px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 8px;
+      margin: 20px 0;
     }
 
-    .cta-button:hover {
+    .cta:hover {
       background-color: #0066ff;
+    }
+
+    img.responsive {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px 0;
     }
 
     footer {
       background-color: #222;
       color: #aaa;
       text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+      padding: 20px;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 28px;
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        text-align: center;
       }
 
-      nav {
-        flex-direction: column;
-        gap: 10px;
+      .hero img {
+        width: 90%;
+        height: auto;
+      }
+
+      .cta {
+        font-size: 16px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    <h1>Lian Loan Services</h1>
-    <p>Your academic journey, fully supported.</p>
+    <h1>Uniloan - Quick Loans</h1>
+    <p>In partnership with county governments to empower university students</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="apply.html">Apply</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="container">
 
-  <section class="hero">
-    <h1>Fast. Reliable. Student Loans.</h1>
-    <p>Get up to Ksh 30,000 quickly to support your university education with flexible repayment after graduation.</p>
-  </section>
+    <div class="row">
+      <img src="cbk.jpg" alt="CBK">
+      <img src="bank.jpg" alt="Bank">
+    </div>
 
-  <section class="content">
-    <h2>Why Choose Lian?</h2>
-    <p>
-      We work hand-in-hand with county governments and institutions to make sure no student is left behind.
-      With low interest rates, quick approvals, and post-graduation repayment, Lian Loans is built around your needs.
-    </p>
-    <a class="cta-button" href="apply.html">Apply for a Loan</a>
-  </section>
+    <div class="hero">
+      <img src="Sakaja.jpg" alt="Sakaja">
+      <img src="susan.jpg" alt="Susan Kihika">
+      <h2>University loans in association with county governments</h2>
+    </div>
+
+    <div class="highlight">
+      <h3>You can get a loan of up to Ksh. 30,000 within one month!</h3>
+    </div>
+
+    <div class="section">
+      <h2>About Our Loans</h2>
+      <p>
+        Hey university students! Are you worried about taking out loans to fund your education?
+        Our loans are 100% legitimate and designed for university students like you.
+        With flexible repayment plans and reasonable interest, your education journey is covered.
+        Repay only after graduation — just like HELB.
+      </p>
+    </div>
+
+    <div class="section" style="background-color: maroon; color: white;">
+      <h2>Why You Need Us</h2>
+      <ul>
+        <li>Makes university life simple and stress-free</li>
+        <li>Quick loans with very low interest</li>
+        <li>No more deferments due to unpaid fees</li>
+      </ul>
+    </div>
+
+    <div class="section" style="background-color: #ffe0e0;">
+      <h2>Our Mission</h2>
+      <p>
+        University life can be tough, especially for students relying on HELB.
+        Sometimes funding delays can cause fee issues and portal closures.
+        We work with counties to ensure no student is left behind. Apply today.
+      </p>
+    </div>
+
+    <img src="loans.jpg" alt="Loan Distribution" class="responsive">
+    <img src="SEN.jpeg" alt="Senator" class="responsive">
+
+    <a href="Register.html" class="cta">Apply Now</a>
+
+    <div class="section">
+      <h2>Who Benefits?</h2>
+      <ol>
+        <li>First-year students struggling with admission fees</li>
+        <li>Students needing upkeep funds</li>
+        <li>Students at risk of deferment or portal closure</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <img src="steps.png" alt="Steps to Apply" class="responsive">
+    </div>
+
+    <div class="section">
+      <h2>How It Works</h2>
+      <p>1. Fill in your personal and academic details</p>
+      <p>2. Get verified and approved</p>
+      <p>3. Receive loan verification via email</p>
+      <p>4. Track your loan status via SMS updates</p>
+    </div>
+
+    <div class="section" style="background-color: grey; color: white; text-align: center;">
+      <h2>Are you ready to get started in this journey of academic empowerment?</h2>
+      <h2>We’ve got you sorted!</h2>
+    </div>
+
+    <img src="grad.jpg" alt="Graduation" class="responsive">
+  </div>
 
   <footer>
-    &copy; 2025 Lian Loans. All rights reserved.
-  </footer>
-
-</body>
-</html>
+    &copy; 2025 Uniloan .All rights reserved.</footer>
+</body> </html>
 
 
 

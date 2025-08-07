@@ -1,76 +1,106 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Registration Page</title>
-  <style type="text/css">
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <style>
     body {
-      background: black;
-      color: white;
-      text-align: center;
       font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
     }
-
-    .name, .new {
-      margin-left: 100px;
-      width: 350px;
-      height: 90px;
-      border-radius: 40px;
-      font-size: 30px;
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    .me {
-      margin-left: 100px;
-      font-size: 40px;
-      background: blue;
-      border-radius: 10px;
-      color: white;
+    h2 {
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    button {
+      margin-top: 15px;
       padding: 10px 20px;
-      text-decoration: none;
-    }
-
-    .home {
-      font-size: 40px;
-      background: blue;
-      border: 2px solid white;
+      background-color: #007bff;
       color: white;
-      border-radius: 20px;
-      padding: 10px 20px;
-      text-decoration: none;
-      margin-left:0px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    h1, h2 {
-      margin-left: 100px;
-    }
-
-    img {
-      margin-left: 100px;
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
     }
   </style>
 </head>
-
 <body>
-  <a class="home" href="Index.html">Back</a>
-  <br><br>
-  <h1>Have an account? Register below.</h1>
-  <br><br>
 
-  <input class="name" type="text" placeholder="Username">
-  <br><br>
+  <form id="registerForm">
+    <h1>Sign Up</h1>
 
-  <input class="new" type="password" placeholder="Password">
-  <br><br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
 
-  <input type="checkbox" id="robotCheck">
-  <label for="robotCheck"><h2>I am not a robot</h2></label>
-  <br>
+    <h2>Provide a strong password</h2>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
 
-  <a class="me" href="Apply.html">Sign Up</a>
-  <br><br><br>
+    <label>
+      <input type="checkbox" id="robotCheck">
+      I am not a robot
+    </label>
 
-  <img src="grad.jpg" height="300px" width="400px" alt="Graduation Image">
+    <button type="submit" id="signupBtn" disabled>Sign Up</button>
+  </form>
+
+  <script>
+    const passwordInput = document.getElementById('password');
+    const signupBtn = document.getElementById('signupBtn');
+    const checkbox = document.getElementById('robotCheck');
+
+    // Enable/disable button based on password length
+    passwordInput.addEventListener('input', () => {
+      if (passwordInput.value.length >= 6) {
+        signupBtn.disabled = false;
+      } else {
+        signupBtn.disabled = true;
+      }
+    });
+
+    // Rotate checkbox on click
+    checkbox.addEventListener('click', () => {
+      checkbox.style.transform = "rotate(360deg)";
+      setTimeout(() => {
+        checkbox.style.transform = "rotate(0deg)";
+      }, 300); // reset after animation
+    });
+
+    // Prevent form from submitting if password is too short (just in case)
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      if (passwordInput.value.length < 6) {
+        e.preventDefault();
+      }
+    });
+  </script>
+
 </body>
 </html>
 

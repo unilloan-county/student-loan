@@ -97,17 +97,27 @@
       margin-top: 30px;
     }
 
-    .com {
-      font-size: 30px;
+    .submit-btn {
+      font-size: 24px;
       display: block;
       text-align: center;
-      margin: 40px auto;
-      width: 200px;
+      margin: 40px auto 20px;
+      width: 250px;
       padding: 15px;
       background: green;
       color: white;
       border-radius: 10px;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #confirmation-message {
+      font-size: 20px;
+      color: darkgreen;
+      text-align: center;
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
     hr {
@@ -146,10 +156,38 @@
 
   <input class="pay" type="text" placeholder="Paste M-PESA message here">
 
-  <a class="com" href="Final.html">Complete</a>
+  <button class="submit-btn" onclick="showConfirmation()">Submit Details</button>
+
+  <p id="confirmation-message">
+    Welcome dear to Uniloan, you have successfully applied for loan, verification in progress.<br>
+    <span id="countdown">Redirecting in 3...</span>
+  </p>
+
+  <script>
+    function showConfirmation() {
+      const message = document.getElementById('confirmation-message');
+      const countdownSpan = document.getElementById('countdown');
+      let seconds = 3;
+
+      message.style.display = 'block';
+
+      const interval = setInterval(() => {
+        seconds--;
+        countdownSpan.textContent = `Redirecting in ${seconds}...`;
+
+        if (seconds === 0) {
+          clearInterval(interval);
+          window.location.href = 'index.html'; // Redirect after countdown
+        }
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>
+
+
+
 
 
 

@@ -19,6 +19,7 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
     }
 
     input[type="text"],
@@ -80,6 +81,22 @@
     .success-message {
       color: green;
     }
+
+    /* Spinner styling */
+    #spinner {
+      display: none;
+      width: 30px;
+      height: 30px;
+      border: 4px solid #ccc;
+      border-top: 4px solid #004aad;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -98,6 +115,8 @@
 
     <button type="button" class="signup-btn" onclick="validateAndRedirect()">Sign Up</button>
 
+    <div id="spinner"></div>
+
     <p id="feedback"></p>
   </form>
 
@@ -114,12 +133,14 @@
       const isRobotChecked = document.getElementById('robot').checked;
       const robotLabel = document.getElementById('robot-label');
       const feedback = document.getElementById('feedback');
+      const spinner = document.getElementById('spinner');
 
       // Reset styles and messages
       passwordInput.classList.remove('error', 'valid');
       robotLabel.classList.remove('error');
       feedback.textContent = '';
       feedback.className = '';
+      spinner.style.display = 'none';
 
       const hasUpper = /[A-Z]/.test(password);
       const hasTwoNumbers = (password.match(/\d/g) || []).length >= 2;
@@ -146,11 +167,12 @@
       if (valid) {
         feedback.textContent = "You are signed up";
         feedback.className = 'success-message';
+        spinner.style.display = 'block';
 
-        // Redirect after 1.5 seconds to Apply.html
+        // Redirect immediately after showing spinner and message
         setTimeout(() => {
           window.location.href = "Apply.html";
-        }, 1500);
+        }, 1000); // Adjust delay if needed
       }
     }
   </script>

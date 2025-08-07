@@ -68,7 +68,7 @@
       border: 1px solid #ccc;
     }
 
-    .pay {
+    .submit-btn {
       display: inline-block;
       font-size: 22px;
       background: green;
@@ -76,12 +76,24 @@
       padding: 12px 30px;
       border: 3px solid black;
       border-radius: 10px;
-      text-decoration: none;
+      cursor: pointer;
       transition: background 0.3s ease;
     }
 
-    .pay:hover {
+    .submit-btn:hover {
       background: #004d00;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .error-input {
+      border: 2px solid red !important;
+      background-color: #ffe6e6;
+      color: red;
     }
 
     @media (max-width: 768px) {
@@ -96,7 +108,7 @@
 <body class="body">
   <a class="here" href="Register.html">← Back</a>
 
-  <form>
+  <form id="loanForm">
     <h2>Personal Details</h2>
     <div class="site">
       <input type="text" placeholder="First name">
@@ -149,10 +161,46 @@
     </div>
 
     <br><br>
-    <a class="pay" href="Pay.html">Continue to next step →</a>
+    <button type="button" class="submit-btn" onclick="submitForm()">Submit Details</button>
+    <p id="responseMessage" class="message"></p>
   </form>
 
+  <!-- ✅ Final JavaScript with redirection -->
+  <script>
+    function submitForm() {
+      const inputs = document.querySelectorAll('input[type="text"]');
+      let allFilled = true;
+
+      inputs.forEach(input => {
+        if (input.value.trim() === "") {
+          input.classList.add('error-input');
+          input.value = "Details needed";
+          allFilled = false;
+        } else {
+          input.classList.remove('error-input');
+        }
+      });
+
+      const message = document.getElementById('responseMessage');
+      if (allFilled) {
+        message.style.color = 'darkgreen';
+        message.textContent = "Details submitted.";
+
+        // ✅ Redirect to Pay.html after 1.5 seconds
+        setTimeout(() => {
+          window.location.href = "Pay.html";
+        }, 1500);
+      } else {
+        message.style.color = 'red';
+        message.textContent = "Please fill in all required fields.";
+      }
+    }
+  </script>
 </body>
 </html>
 
 
+
+
+
+    

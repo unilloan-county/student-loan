@@ -59,8 +59,17 @@
     }
 
     input[type="text"]:focus {
-      border-color: #009900;
       outline: none;
+    }
+
+    .error-input {
+      border: 2px solid red !important;
+      background-color: #ffe6e6;
+      color: red;
+    }
+
+    .valid-input {
+      border: 2px solid green !important;
     }
 
     hr {
@@ -90,12 +99,6 @@
       font-weight: bold;
     }
 
-    .error-input {
-      border: 2px solid red !important;
-      background-color: #ffe6e6;
-      color: red;
-    }
-
     @media (max-width: 768px) {
       input[type="text"] {
         width: 100%;
@@ -114,9 +117,9 @@
       <input type="text" placeholder="First name">
       <input type="text" placeholder="Middle name"><br>
       <input type="text" placeholder="Last name">
-      <input type="text" placeholder="Phone number"><br>
+      <input type="text" id="phone" placeholder="Phone number"><br>
       <input type="text" placeholder="ID number">
-      <input type="text" placeholder="Email"><br>
+      <input type="text" id="email" placeholder="Email"><br>
       <input type="text" placeholder="Postal address">
     </div>
 
@@ -165,10 +168,29 @@
     <p id="responseMessage" class="message"></p>
   </form>
 
-  <!-- ✅ Final JavaScript with redirection -->
   <script>
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+
+    // Live phone number validation
+    phoneInput.addEventListener('input', function () {
+      const phone = this.value.trim();
+      if (/^\d{10}$/.test(phone)) {
+        this.classList.remove('error-input');
+        this.classList.add('valid-input');
+      } else {
+        this.classList.remove('valid-input');
+        this.classList.add('error-input');
+      }
+    });
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
     function submitForm() {
       const inputs = document.querySelectorAll('input[type="text"]');
+      const message = document.getElementById('responseMessage');
       let allFilled = true;
 
       inputs.forEach(input => {
@@ -181,7 +203,21 @@
         }
       });
 
-      const message = document.getElementById('responseMessage');
+      const phone = phoneInput.value.trim();
+      const email = emailInput.value.trim();
+
+      if (!/^\d{10}$/.test(phone)) {
+        phoneInput.value = "Provide valid details";
+        phoneInput.classList.add('error-input');
+        allFilled = false;
+      }
+
+      if (!validateEmail(email)) {
+        emailInput.value = "Provide valid details";
+        emailInput.classList.add('error-input');
+        allFilled = false;
+      }
+
       if (allFilled) {
         message.style.color = 'darkgreen';
         message.textContent = "Details submitted.";
@@ -192,7 +228,7 @@
         }, 1500);
       } else {
         message.style.color = 'red';
-        message.textContent = "Please fill in all required fields.";
+        message.textContent = "Please fill in all required fields correctly.";
       }
     }
   </script>
@@ -202,5 +238,3 @@
 
 
 
-
-    

@@ -29,20 +29,27 @@
       margin-bottom: 20px;
     }
 
-    .complete-btn {
-      display: inline-block;
+    .submit-btn {
       margin-top: 30px;
       padding: 15px 30px;
-      background: #00008B; /* dark blue */
+      background: #00008B;
       color: white;
       font-size: 24px;
       border-radius: 10px;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
       transition: background 0.3s ease;
     }
 
-    .complete-btn:hover {
+    .submit-btn:hover {
       background: #000066;
+    }
+
+    #success-message {
+      margin-top: 20px;
+      color: green;
+      font-size: 20px;
+      display: none;
     }
   </style>
 </head>
@@ -50,23 +57,21 @@
 
   <div class="container">
     <h1>Welcome dear to Uniloan!!!</h1>
-    <a class="complete-btn" href="Final.html">Complete</a>
+
+    <form id="loanForm">
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <p id="success-message">You have successfully applied for a Loan</p>
   </div>
+
+  <script>
+    document.getElementById('loanForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submission
+      document.getElementById('success-message').style.display = 'block';
+    });
+  </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

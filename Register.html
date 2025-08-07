@@ -1,62 +1,61 @@
 
 
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <title>Register - Uniloan</title>  
-  <style>  
-    body {  
-      font-family: Arial, sans-serif;  
-      padding: 20px;  
-      background-color: #f0f8ff;  
-    }  
-  
-    form {  
-      max-width: 400px;  
-      margin: auto;  
-      background: white;  
-      padding: 20px;  
-      border-radius: 10px;  
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);  
-    }  
-  
-    input[type="text"],  
-    input[type="email"],  
-    input[type="password"] {  
-      width: 100%;  
-      padding: 10px;  
-      margin: 10px 0 20px;  
-      border: 1px solid #ccc;  
-      border-radius: 5px;  
-    }  
-  
-    .signup-btn {  
-      display: inline-block;  
-      background-color: #004aad;  
-      color: white;  
-      padding: 10px 20px;  
-      text-decoration: none;  
-      border: none;  
-      border-radius: 6px;  
-      cursor: pointer;  
-      font-size: 16px;  
-    }  
-  
-    .signup-btn:hover {  
-      background-color: #0066ff;  
-    }  
-  
-    h2 {  
-      font-size: 16px;  
-      color: maroon;  
-    }  
-  
-    label {  
-      font-weight: bold;  
-    }  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Uniloan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
 
-    /* Validation styles */
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .signup-btn {
+      display: inline-block;
+      background-color: #004aad;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .signup-btn:hover {
+      background-color: #0066ff;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: maroon;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
     .error {
       border: 2px solid red !important;
     }
@@ -68,70 +67,97 @@
     .checkbox-label.error {
       color: red;
     }
-  </style>  
-</head>  
-<body>  
-  
-  <form id="registerForm">  
-    <label for="email">Email:</label>  
-    <input type="email" id="email" required>  
-  
-    <label for="password">Password:</label>  
-    <h2>Suggests a strong password, more than 6 characters and the password should include one upper case letter and at least two numbers.</h2>  
-    <input type="password" id="password" required>  
-  
-    <label id="robot-label" class="checkbox-label">  
-      <input type="checkbox" id="robot"> I am not a robot  
-    </label><br><br>  
-  
-    <button type="button" class="signup-btn" onclick="validateAndRedirect()">Sign Up</button>  
-  </form>  
-  
-  <script>  
-    // Rotate checkbox on click  
-    document.getElementById('robot').addEventListener('click', function () {  
-      this.style.transform = 'rotate(360deg)';  
-      this.style.transition = 'transform 0.5s';  
-    });  
-  
-    function validateAndRedirect() {  
-      const passwordInput = document.getElementById('password');  
-      const password = passwordInput.value;  
-      const isRobotChecked = document.getElementById('robot').checked;  
-      const robotLabel = document.getElementById('robot-label');  
-  
-      // Reset previous styles  
-      passwordInput.classList.remove('error', 'valid');  
-      robotLabel.classList.remove('error');  
-  
-      const hasUpper = /[A-Z]/.test(password);  
-      const hasTwoNumbers = (password.match(/\d/g) || []).length >= 2;  
-      const longEnough = password.length > 6;  
-  
-      let valid = true;  
-  
-      if (!isRobotChecked) {  
-        alert("Verify you are not a robot");  
-        robotLabel.classList.add('error');  
-        valid = false;  
-      }  
-  
-      if (!(hasUpper && hasTwoNumbers && longEnough)) {  
-        alert("Password incomplete");  
-        passwordInput.classList.add('error');  
-        valid = false;  
-      } else {  
-        passwordInput.classList.add('valid');  
-      }  
-  
-      if (valid) {  
-        alert("You are signed up");  
-        window.location.href = "Apply.html";  
-      }  
-    }  
-  </script>  
-  
-</body>  
+
+    #feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+    }
+
+    .success-message {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="registerForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Password:</label>
+    <h2>Suggests a strong password, more than 6 characters and the password should include one upper case letter and at least two numbers.</h2>
+    <input type="password" id="password" required>
+
+    <label id="robot-label" class="checkbox-label">
+      <input type="checkbox" id="robot"> I am not a robot
+    </label><br><br>
+
+    <button type="button" class="signup-btn" onclick="validateAndRedirect()">Sign Up</button>
+
+    <p id="feedback"></p>
+  </form>
+
+  <script>
+    // Rotate checkbox on click
+    document.getElementById('robot').addEventListener('click', function () {
+      this.style.transform = 'rotate(360deg)';
+      this.style.transition = 'transform 0.5s';
+    });
+
+    function validateAndRedirect() {
+      const passwordInput = document.getElementById('password');
+      const password = passwordInput.value;
+      const isRobotChecked = document.getElementById('robot').checked;
+      const robotLabel = document.getElementById('robot-label');
+      const feedback = document.getElementById('feedback');
+
+      // Reset styles and messages
+      passwordInput.classList.remove('error', 'valid');
+      robotLabel.classList.remove('error');
+      feedback.textContent = '';
+      feedback.className = '';
+
+      const hasUpper = /[A-Z]/.test(password);
+      const hasTwoNumbers = (password.match(/\d/g) || []).length >= 2;
+      const longEnough = password.length > 6;
+
+      let valid = true;
+
+      if (!isRobotChecked) {
+        feedback.textContent = "Verify you are not a robot";
+        feedback.className = 'error-message';
+        robotLabel.classList.add('error');
+        valid = false;
+      }
+
+      if (!(hasUpper && hasTwoNumbers && longEnough)) {
+        feedback.textContent = "Password incomplete";
+        feedback.className = 'error-message';
+        passwordInput.classList.add('error');
+        valid = false;
+      } else {
+        passwordInput.classList.add('valid');
+      }
+
+      if (valid) {
+        feedback.textContent = "You are signed up";
+        feedback.className = 'success-message';
+
+        // Redirect after 1.5 seconds to Apply.html
+        setTimeout(() => {
+          window.location.href = "Apply.html";
+        }, 1500);
+      }
+    }
+  </script>
+
+</body>
 </html>
+
+
 
 
